@@ -1,4 +1,4 @@
 saltstates
 ==========
 
-Sample Repository For salt 
+Sample Repository for Salt States - just testing
