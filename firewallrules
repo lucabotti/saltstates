@@ -1,0 +1,480 @@
+redmine.italia.mega.com:
+    ----------
+    filter:
+        ----------
+        FORWARD:
+            ----------
+            byte count:
+                0
+            packet count:
+                0
+            policy:
+                ACCEPT
+            rules:
+                ----------
+                - jump:
+                    - REJECT
+                - reject-with:
+                    - icmp-host-prohibited
+            rules_comment:
+                ----------
+        INPUT:
+            ----------
+            byte count:
+                0
+            packet count:
+                0
+            policy:
+                ACCEPT
+            rules:
+                ----------
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                - state:
+                    - RELATED,ESTABLISHED
+                ----------
+                - jump:
+                    - ACCEPT
+                - protocol:
+                    - icmp
+                ----------
+                - in-interface:
+                    - lo
+                - jump:
+                    - ACCEPT
+                ----------
+                - destination_port:
+                    - 22
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - tcp
+                - protocol:
+                    - tcp
+                - state:
+                    - NEW
+                ----------
+                - jump:
+                    - REJECT
+                - reject-with:
+                    - icmp-host-prohibited
+            rules_comment:
+                ----------
+        OUTPUT:
+            ----------
+            byte count:
+                113463
+            packet count:
+                1192
+            policy:
+                ACCEPT
+            rules:
+            rules_comment:
+                ----------
+saltmaster.italia.mega.com:
+    ----------
+    filter:
+        ----------
+        FORWARD:
+            ----------
+            byte count:
+                0
+            packet count:
+                0
+            policy:
+                ACCEPT
+            rules:
+                ----------
+                - jump:
+                    - REJECT
+                - reject-with:
+                    - icmp-host-prohibited
+            rules_comment:
+                ----------
+        INPUT:
+            ----------
+            byte count:
+                0
+            packet count:
+                0
+            policy:
+                ACCEPT
+            rules:
+                ----------
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                - state:
+                    - RELATED,ESTABLISHED
+                ----------
+                - jump:
+                    - ACCEPT
+                - protocol:
+                    - icmp
+                ----------
+                - in-interface:
+                    - lo
+                - jump:
+                    - ACCEPT
+                ----------
+                - destination_port:
+                    - 22
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - tcp
+                - protocol:
+                    - tcp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 22
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - tcp
+                - protocol:
+                    - tcp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 4505
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - tcp
+                - protocol:
+                    - tcp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 4506
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - tcp
+                - protocol:
+                    - tcp
+                - state:
+                    - NEW
+                ----------
+                - jump:
+                    - REJECT
+                - reject-with:
+                    - icmp-host-prohibited
+            rules_comment:
+                ----------
+        OUTPUT:
+            ----------
+            byte count:
+                4492406
+            packet count:
+                41046
+            policy:
+                ACCEPT
+            rules:
+            rules_comment:
+                ----------
+intranet.italia.mega.com:
+    ----------
+    filter:
+        ----------
+        FORWARD:
+            ----------
+            byte count:
+                0
+            packet count:
+                0
+            policy:
+                ACCEPT
+            rules:
+                ----------
+                - jump:
+                    - REJECT
+                - reject-with:
+                    - icmp-host-prohibited
+            rules_comment:
+                ----------
+        INPUT:
+            ----------
+            byte count:
+                0
+            packet count:
+                0
+            policy:
+                ACCEPT
+            rules:
+                ----------
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                - state:
+                    - RELATED,ESTABLISHED
+                ----------
+                - jump:
+                    - ACCEPT
+                - protocol:
+                    - icmp
+                ----------
+                - in-interface:
+                    - lo
+                - jump:
+                    - ACCEPT
+                ----------
+                - destination_port:
+                    - 22
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - tcp
+                - protocol:
+                    - tcp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 80
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - tcp
+                - protocol:
+                    - tcp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 443
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - tcp
+                - protocol:
+                    - tcp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 137
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - udp
+                - protocol:
+                    - udp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 138
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - udp
+                - protocol:
+                    - udp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 137
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - udp
+                - protocol:
+                    - udp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 138
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - udp
+                - protocol:
+                    - udp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 139
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - tcp
+                - protocol:
+                    - tcp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 445
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - tcp
+                - protocol:
+                    - tcp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 5432
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - tcp
+                - protocol:
+                    - tcp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 5432
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - udp
+                - protocol:
+                    - udp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 5900
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - tcp
+                - protocol:
+                    - tcp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 5900
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - udp
+                - protocol:
+                    - udp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 8000
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - tcp
+                - protocol:
+                    - tcp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 8000
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - udp
+                - protocol:
+                    - udp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 514
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - udp
+                - protocol:
+                    - udp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 514
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - tcp
+                - protocol:
+                    - tcp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 3389
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - tcp
+                - protocol:
+                    - tcp
+                - state:
+                    - NEW
+                ----------
+                - destination_port:
+                    - 3389
+                - jump:
+                    - ACCEPT
+                - match:
+                    - state
+                    - udp
+                - protocol:
+                    - udp
+                - state:
+                    - NEW
+                ----------
+                - jump:
+                    - REJECT
+                - reject-with:
+                    - icmp-host-prohibited
+            rules_comment:
+                ----------
+        OUTPUT:
+            ----------
+            byte count:
+                2817222328
+            packet count:
+                9630534
+            policy:
+                ACCEPT
+            rules:
+            rules_comment:
+                ----------
