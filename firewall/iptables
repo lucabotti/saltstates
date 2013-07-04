@@ -1,0 +1,21 @@
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+ACCEPT     all  --  anywhere             anywhere            state RELATED,ESTABLISHED 
+ACCEPT     icmp --  anywhere             anywhere            
+ACCEPT     all  --  anywhere             anywhere            
+ACCEPT     tcp  --  anywhere             anywhere            state NEW tcp dpt:ssh 
+ACCEPT     tcp  --  anywhere             anywhere            state NEW tcp dpt:ssh 
+ACCEPT     tcp  --  anywhere             anywhere            state NEW tcp dpt:4505 
+ACCEPT     tcp  --  anywhere             anywhere            state NEW tcp dpt:4506 
+ACCEPT     udp  --  anywhere             anywhere            state NEW udp dpt:ms-wbt-server 
+ACCEPT     tcp  --  anywhere             anywhere            state NEW tcp dpt:ms-wbt-server 
+ACCEPT     udp  --  anywhere             anywhere            state NEW udp dpt:munin 
+ACCEPT     tcp  --  anywhere             anywhere            state NEW tcp dpt:munin 
+REJECT     all  --  anywhere             anywhere            reject-with icmp-host-prohibited 
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+REJECT     all  --  anywhere             anywhere            reject-with icmp-host-prohibited 
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
